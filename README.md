@@ -154,24 +154,31 @@ GET /api/insurance/12345678901
 **Example Response**:
 ```json
 {
-  "personInsurance": {
+  "personInsuranceDetails": {
     "personId": "12345678901",
     "personName": "John Doe",
     "insurances": [
       {
-        "type": "Pet insurance",
+        "type": "PetInsurance",
         "monthlyCost": 10.0,
-        "vehicleRegistration": null
+        "vehicle": null
       },
       {
-        "type": "Personal health insurance",
+        "type": "PersonalHealthInsurance",
         "monthlyCost": 20.0,
-        "vehicleRegistration": null
+        "vehicle": null
       },
       {
-        "type": "Car insurance",
+        "type": "CarInsurance",
         "monthlyCost": 30.0,
-        "vehicleRegistration": "ABC123"
+        "vehicle": {
+          "registrationNumber": "ABC123",
+          "make": "Toyota",
+          "model": "Camry",
+          "year": 2022,
+          "color": "Blue",
+          "vinNumber": "1HGBH41JXMN109186"
+        }
       }
     ],
     "totalMonthlyCost": 60.0
@@ -381,6 +388,70 @@ dotnet dev-certs https --trust
 - Use `dotnet watch run` for hot reload during development
 - Configure logging levels in appsettings.Development.json
 - Use Swagger UI for interactive API testing
+
+## 🚀 CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+The project includes a comprehensive CI/CD pipeline that automatically:
+
+**For all branches (main, dev):**
+- ✅ **Builds** both Vehicle and Insurance services
+- 🧪 **Runs all 13 tests** with detailed reporting
+- 📊 **Generates code coverage** reports with HTML visualization
+- 🔒 **Security scanning** for vulnerable packages
+- 📤 **Uploads artifacts** (test results, coverage reports)
+
+**For main branch only:**
+- 📦 **Publishes** production-ready artifacts for both services
+- 🏗️ **Builds deployment packages** ready for containerization
+
+### Pipeline Features
+
+```yaml
+# Triggered on push to main/dev branches
+on:
+  push:
+    branches: [main, dev]
+  workflow_dispatch:  # Manual trigger available
+```
+
+**Code Coverage:**
+- Uses XPlat Code Coverage collector
+- Generates HTML reports with ReportGenerator
+- Displays coverage summary in GitHub Actions
+- Uploads detailed coverage reports as artifacts
+
+**Test Execution:**
+- Runs all unit and integration tests
+- Provides detailed console output
+- Generates TRX test result files
+- Uploads test results for analysis
+
+**Security:**
+- Scans for vulnerable NuGet packages
+- Checks for outdated dependencies
+- Includes transitive dependency analysis
+
+### Viewing Results
+
+After each pipeline run:
+1. **Coverage Reports**: Download from Actions → Artifacts → `coverage-report-{run-number}`
+2. **Test Results**: Download from Actions → Artifacts → `test-results-{run-number}`
+3. **Build Artifacts**: Download production builds from `{service}-{run-number}`
+
+### Local Testing with Coverage
+
+```bash
+# Run tests with coverage locally
+dotnet test --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+# Install ReportGenerator (one-time setup)
+dotnet tool install -g dotnet-reportgenerator-globaltool
+
+# Generate HTML coverage report
+reportgenerator -reports:"coverage/**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:"Html"
+```
 
 ---
 
