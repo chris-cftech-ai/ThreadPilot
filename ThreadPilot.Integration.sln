@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPilot.InsuranceService", "ThreadPilot.InsuranceService\ThreadPilot.InsuranceService.csproj", "{140BC3FD-57E2-402F-9BEF-A1334FDACEB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleLegacySystems.VehicleService", "MultipleLegacySystems.VehicleService\MultipleLegacySystems.VehicleService.csproj", "{F7F2EF92-E1AD-40C4-AD2C-100B767F748C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPilot.Tests", "ThreadPilot.Tests\ThreadPilot.Tests.csproj", "{2428C2A0-4E99-4BE5-99C4-0E90C8CB96EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{140BC3FD-57E2-402F-9BEF-A1334FDACEB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140BC3FD-57E2-402F-9BEF-A1334FDACEB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{140BC3FD-57E2-402F-9BEF-A1334FDACEB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{140BC3FD-57E2-402F-9BEF-A1334FDACEB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F2EF92-E1AD-40C4-AD2C-100B767F748C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F2EF92-E1AD-40C4-AD2C-100B767F748C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F2EF92-E1AD-40C4-AD2C-100B767F748C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F2EF92-E1AD-40C4-AD2C-100B767F748C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2428C2A0-4E99-4BE5-99C4-0E90C8CB96EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2428C2A0-4E99-4BE5-99C4-0E90C8CB96EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2428C2A0-4E99-4BE5-99C4-0E90C8CB96EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2428C2A0-4E99-4BE5-99C4-0E90C8CB96EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
